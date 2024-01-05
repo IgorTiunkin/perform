@@ -20,9 +20,21 @@ public class PeopleService {
         return peopleRepository.findAll();
     }
 
-    @Transactional(readOnly = false)
+    @Transactional()
     public void save (Person person) {
         peopleRepository.save(person);
+    }
+
+    public List <Person> findAllByName(String name) {
+        return peopleRepository.findAllByName(name);
+    }
+
+    public List <Person> findAllBySurName(String surname) {
+        return peopleRepository.findAllBySurname(surname);
+    }
+
+    public List <Person> findAllByAge(Integer age) {
+        return peopleRepository.findAllByAge(age);
     }
 
 }

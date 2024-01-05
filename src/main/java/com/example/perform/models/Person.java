@@ -3,6 +3,7 @@ package com.example.perform.models;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "person")
@@ -13,8 +14,6 @@ import javax.persistence.*;
 @Builder
 @ToString
 public class Person {
-
-
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,4 +28,6 @@ public class Person {
     @Column(name = "age")
     private Integer age;
 
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
 }
