@@ -15,7 +15,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/test")
 @RequiredArgsConstructor
-public class BaseController {
+public class PeopleController {
 
     private final PeopleService peopleService;
     private final DataInitService dataInitService;
@@ -54,6 +54,24 @@ public class BaseController {
     @ResponseBody
     public List<Person> allByAge() {
         return peopleService.findAllByAge(125);
+    }
+
+    @RequestMapping("/addLikeBySurnameSerialWithoutLocks")
+    @ResponseBody
+    public void addLikeBySurnameSerialWithoutLocks() {
+        peopleService.addLikeBySurnameSerialWithoutLocks("BondBond");
+    }
+
+    @RequestMapping("/addLikeBySurnameReadCommPessLock")
+    @ResponseBody
+    public void addLikeBySurnameReadCommPessLock() {
+        peopleService.addLikeBySurnameReadCommPessLock("BondBond");
+    }
+
+    @RequestMapping("/countOfAttempts")
+    @ResponseBody
+    public String countOfAttempts() {
+        return peopleService.getAttemptsCount();
     }
 
 

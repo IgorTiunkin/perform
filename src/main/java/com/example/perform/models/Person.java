@@ -30,4 +30,7 @@ public class Person {
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
+
+    @Column(name = "likes")
+    private Integer likes;
 }
